@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView: UITableView!
     
-    var emojis = ["🙃","🐹","🙈","🙊","😬","😅","👻","🤷🏽‍♀️","🙆🏽‍♂️","🤦🏽‍♂️","🦑"]
+    var emojis = ["🙃","🐹","🙈","🙊","😅","👻","🤷🏽‍♀️","🙆🏽‍♂️","🤦🏽‍♂️","🦑"]
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let emoji = emojis[indexPath.row]
         performSegue(withIdentifier: "firstSegue", sender: emoji)
     }
